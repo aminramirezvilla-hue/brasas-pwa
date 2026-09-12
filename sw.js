@@ -1,4 +1,4 @@
-const CACHE = "brasas-existencias-v5";
+const CACHE = "brasas-existencias-v6";
 
 self.addEventListener("install", (event) => {
   event.waitUntil(self.skipWaiting());
