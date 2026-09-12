@@ -21,8 +21,22 @@
     };
   }
 
-  function line(i) {
-    return "• " + i.name + " (" + (i.unitLabel || "") + ")";
+  function fmtQty(n) {
+    var num = Number(n);
+    if (!isFinite(num)) return "0";
+    if (Math.round(num) === num) return String(num);
+    return String(Math.round(num * 100) / 100);
+  }
+
+  function lineFalta(i) {
+    return "• " + i.name + " — 0 " + (i.unitLabel || "") + " (FALTA)";
+  }
+
+  function lineBajo(i) {
+    var unit = i.unitLabel || "";
+    var hay = fmtQty(i.stock);
+    var extra = i.min > 0 ? " · mín " + fmtQty(i.min) + " " + unit : "";
+    return "• " + i.name + " — hay " + hay + " " + unit + extra;
   }
 
   function buildHref() {
@@ -31,11 +45,11 @@
     var parts = ["Pedido A las Brasas"];
     if (g.falta.length) {
       parts.push("", "FALTA:");
-      g.falta.forEach(function (i) { parts.push(line(i)); });
+      g.falta.forEach(function (i) { parts.push(lineFalta(i)); });
     }
     if (g.bajo.length) {
-      parts.push("", "BAJO:");
-      g.bajo.forEach(function (i) { parts.push(line(i)); });
+      parts.push("", "BAJO (existencia actual):");
+      g.bajo.forEach(function (i) { parts.push(lineBajo(i)); });
     }
     return "https://wa.me/" + PHONE + "?text=" + encodeURIComponent(parts.join("\n"));
   }
