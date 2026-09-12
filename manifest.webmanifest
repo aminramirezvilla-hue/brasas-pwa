@@ -1,0 +1,40 @@
+{
+  "id": "/a-las-brasas-existencias/",
+  "name": "A las Brasas · Existencias",
+  "short_name": "A las Brasas",
+  "description": "Control manual de existencias y faltantes. Parrilla A las Brasas, Chilpancingo, Guerrero.",
+  "start_url": "./#/inventario",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#0C0B0A",
+  "theme_color": "#0C0B0A",
+  "lang": "es-MX",
+  "categories": ["business", "food", "productivity"],
+  "icons": [
+    {
+      "src": "./icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "./favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

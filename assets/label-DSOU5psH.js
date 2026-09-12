@@ -1,0 +1,1 @@
+import{t as e}from"./react-BicOiEU0.js";import{n as t}from"./mark-BJsCz9st.js";var n=e();function r({className:e,...r}){return(0,n.jsx)(`label`,{className:t(`mb-1.5 block text-xs font-medium tracking-wide text-muted`,e),...r})}export{r as t};

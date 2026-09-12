@@ -1,0 +1,35 @@
+A las Brasas · Existencias — cómo publicar en GitHub Pages
+==========================================================
+
+Este ZIP YA es la PWA. No hay que compilar nada.
+
+1) Descomprime el ZIP. Debes ver index.html suelto
+   (no una carpeta extra envuelta).
+
+2) En GitHub: New repository
+   - Nombre, por ejemplo: brasas-existencias
+   - Public
+   - NO marques "Add a README"
+   - Create repository
+
+3) En el repo vacío: Add file → Upload files
+   - Arrastra TODO lo que salió del ZIP
+     (index.html, assets, logo-brasas.jpg, iconos, sw.js, etc.)
+   - Commit changes
+
+4) Settings → Pages
+   - Source: Deploy from a branch
+   - Branch: main
+   - Folder: / (root)     ← no elijas /docs
+   - Save
+
+5) En 1–2 minutos abre:
+   https://aminramirezvilla-hue.github.io/NOMBRE-DEL-REPO/
+
+   Debes ver fondo negro e Inventario (Hay / Bajo / Falta).
+   Si ves una hoja de texto blanca, Pages está leyendo un README:
+   confirma que index.html está en la raíz del repo, no dentro de otra carpeta.
+
+6) En el celular, con esa URL ya abierta:
+   iPhone: Compartir → Agregar a pantalla de inicio
+   Android: menú ⋮ → Instalar aplicación
