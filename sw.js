@@ -1,4 +1,4 @@
-const CACHE = "brasas-existencias-v3";
+const CACHE = "brasas-existencias-v4";
 
 self.addEventListener("install", (event) => {
   event.waitUntil(self.skipWaiting());
@@ -40,8 +40,8 @@ self.addEventListener("fetch", (event) => {
           return (
             (await cache.match(req)) ||
             (await cache.match("./index.html")) ||
-            (await cache.match("/a-las-brasas-existencias/")) ||
-            (await cache.match("/a-las-brasas-existencias/index.html"))
+            (await cache.match("/brasas-pwa/")) ||
+            (await cache.match("/brasas-pwa/index.html"))
           );
         }),
     );
@@ -61,7 +61,7 @@ self.addEventListener("fetch", (event) => {
       } catch {
         return (
           (await cache.match("./index.html")) ||
-          (await cache.match("/a-las-brasas-existencias/index.html"))
+          (await cache.match("/brasas-pwa/index.html"))
         );
       }
     }),
