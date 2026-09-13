@@ -1,0 +1,12 @@
+A las Brasas PWA · versión 1 congelada
+Fecha: 2026-09-13
+Commit: 55440cfe90597e99aaec08f84d20f8227a30ce9e
+
+Incluye:
+- Inventario Hay / Bajo / Falta
+- Pedir por WhatsApp con Falta y Bajo (con cantidades)
+- Enviar turno / Cargar turno en Acta
+- UX móvil de cocina
+
+No alterar esta rama. El trabajo de Ventas va en feat/ventas-menu.
+La PWA en línea (GitHub Pages, rama main) sigue siendo esta versión 1 hasta que se apruebe publicar Ventas.
