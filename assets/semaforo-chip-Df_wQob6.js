@@ -1,1 +1,0 @@
-import{t as e}from"./react-BicOiEU0.js";import{p as t,r as n}from"./index-c-fSPEh6.js";var r=e(),i={ok:`ok`,warn:`warn`,crit:`crit`,empty:`crit`};function a({level:e,label:a}){return(0,r.jsx)(t,{tone:i[e],children:a??n(e)})}export{a as t};

@@ -1,4 +1,4 @@
-const CACHE = "brasas-existencias-v12";
+const CACHE = "brasas-existencias-v13";
 
 self.addEventListener("install", (event) => {
   event.waitUntil(self.skipWaiting());
@@ -18,52 +18,25 @@ self.addEventListener("fetch", (event) => {
   if (req.method !== "GET") return;
 
   const url = new URL(req.url);
-  const isDoc =
-    req.mode === "navigate" ||
-    req.destination === "document" ||
-    url.pathname.endsWith("/") ||
-    url.pathname.endsWith(".html") ||
-    url.pathname.endsWith(".webmanifest");
-
-  if (isDoc) {
-    event.respondWith(
-      fetch(req)
-        .then((res) => {
-          if (res.ok) {
-            const copy = res.clone();
-            caches.open(CACHE).then((cache) => cache.put(req, copy));
-          }
-          return res;
-        })
-        .catch(async () => {
-          const cache = await caches.open(CACHE);
-          return (
-            (await cache.match(req)) ||
-            (await cache.match("./index.html")) ||
-            (await cache.match("/a-las-brasas-existencias/")) ||
-            (await cache.match("/a-las-brasas-existencias/index.html"))
-          );
-        }),
-    );
-    return;
-  }
+  if (url.origin !== self.location.origin) return;
 
   event.respondWith(
-    caches.open(CACHE).then(async (cache) => {
-      const cached = await cache.match(req);
-      if (cached) return cached;
-      try {
-        const res = await fetch(req);
-        if (res.ok && url.origin === self.location.origin) {
-          cache.put(req, res.clone());
+    fetch(req)
+      .then((res) => {
+        if (res.ok) {
+          const copy = res.clone();
+          caches.open(CACHE).then((cache) => cache.put(req, copy));
         }
         return res;
-      } catch {
+      })
+      .catch(async () => {
+        const cache = await caches.open(CACHE);
         return (
+          (await cache.match(req)) ||
           (await cache.match("./index.html")) ||
-          (await cache.match("/a-las-brasas-existencias/index.html"))
+          (await cache.match("/brasas-pwa/")) ||
+          (await cache.match("/brasas-pwa/index.html"))
         );
-      }
-    }),
+      }),
   );
 });
